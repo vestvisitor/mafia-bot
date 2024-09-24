@@ -6,7 +6,7 @@ from vk_api.longpoll import VkLongPoll, VkEventType
 from database import *
 from methods import *
 
-token = 'vk1.a.LwmNBykYpFGBQe_m3RawdPWUJgSquqYNGKDp7KQm4wFQqkhA8NMO1C-l0APEpps3yT5B36DHKYAbLn2K7yNsg1KxEfLdXLUwxOtFs4OIdLzCi5jv5oJaDoHPl5x_eLHwWOGRw737-4ZVmMTmNBz7bUbNHSAlx0Dy4tp5-FvDmj5jH2FloNIS9DFVcp5Bi5veR5Do3y7oJIhrMSZtAmt4qw'
+token = 'secret'
 
 session = vk_api.VkApi(
     token=token)
@@ -227,26 +227,3 @@ if __name__ == '__main__':
                 choice = execute_sql_command("ROLE_CHOICE", (execute_sql_command("USER_ROOM", user_id), msg, user_id, 'мститель'))
                 if choice[0] is None:
                     send_message_to_user_keyboard(user_id, "🚫 Некорректный выбор!", users_keyboard(choice[1], 1))
-
-            elif event.from_user is True and msg.lower() == 'играть' and execute_sql_command("USER_ROOM", values=(user_id)) is None:
-                execute_sql_command('ROOM-2', values=(user_id))
-                send_message_to_user_keyboard(user_id, "Хочешь создать или найти игру?", get_join_or_look_button())
-
-            elif event.from_user is True and execute_sql_command("USER_ROOM", values=(user_id)) == -2:
-
-                if msg.lower() == 'создать':
-                    lal = get_invitation(6)
-                    print(f"ссылка на беседу: {lal}")
-                    # get_list_of_conversations()
-                    # room = execute_sql_command("AVAILABLE_ROOM", values=None)
-                    # if room is None:
-                    #     send_message_to_user(user_id, 'На текущий момент все комнаты заняты. Хотите встать в очередь?')
-                    # else:
-                    #     send_message_to_user_keyboard(user_id, 'Твоя ссылка', get_join_inline(get_invitation(room)))
-                    #     create_room = execute_sql_command('CREATE_ROOM', (room, username, user_id))
-
-
-                # elif msg.lower() == 'найти':
-                #     print(1)
-                # else:
-                #     send_message_to_user_keyboard(user_id, "Не понимаю тебя... Ты хочешь создать или присоединиться?", get_join_or_look_button())
