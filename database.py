@@ -228,11 +228,5 @@ def execute_sql_command(type, values):
 
 
 if __name__ == '__main__':
-    # version("SELECT version();")
-    # execute_sql_command('INSERT', "INSERT INTO all_users (username, userid, room) VALUES (%s,%s,%s)", ("lal3", 413, 2))
-    # execute_sql_command('INSERT_ALL_USERS', ("RAR", 756))
-    # execute_sql_command("CREATE_ROOM", (423, 'lal', 32))
-    # execute_sql_command('POLL_RESULTS', (1, [-1, -1, -1, -1]))
-    # execute_sql_command("WHO_IS_ALIVE", (161528508, "Мафия"))
-    execute_sql_command('POLL_RESULTS', (2, "🐷"))
+    pass
 
